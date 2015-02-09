@@ -6,7 +6,7 @@ class AutoTest404Pack extends AutoTest404
 /**
  * @expectedException Exception
  */
-    public function testSEOPack() 
+    public function test404Pack() 
     {	
         $this->Error404();
 		
