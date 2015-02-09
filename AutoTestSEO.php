@@ -22,7 +22,8 @@ class AutoTestSEO extends PHPUnit_Framework_TestCase
 	    $SEO=$this->webDriver->get($this->url);
 		echo "\n".'Заходим на сайт и переходим'."\n";
 $a = array(
-          "//a[@title='Раковины']",
+		   "//div[@class='inner']/nav/ul/li/a[@href='/discount/']",
+           "//a[@title='Раковины']",
            "//a[@title='Мебель для ванной']",
            "//a[@title='Унитазы']",
 		   "//a[@title='Писсуары']",
@@ -38,7 +39,6 @@ $a = array(
 		   "//a[@title='Обогреватели']",
 		   "//a[@title='Теплые полы']", 
 		   "//a[@title='Трапы и душевые лотки']",
-		   "//*[@id='sidebar']/aside/div[3]/div/div/div/nav/ul/li[1]/a",
 		   "//a[@href='/discount/ucenka/']"
 		   );
 
@@ -93,12 +93,12 @@ foreach ($a as $v) {
 	}
 	
 	try {
-	$SEO = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='footer_desc']/h5"));
+	$SEO = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='footer_desc slide_text seoTextOpenButton stTruncate stTruncate-close']/h5"));  
         $SEO->click();
 	
 	echo "\n.Тег h5 есть.\n";
 	}
-		catch (PHPUnit_Framework_ExpectationFailedException $ex) {
+		catch (Exception $ex) {
 		echo "\n Ошибка. Нет тега h5 на страницах: $SEOPage.\n";
 	//	throw $ex;
 	}
@@ -140,7 +140,7 @@ catch (Exception $ex) {
         $SEO->click();
 	echo "\n.Тег h1 есть.\n";
 	}
-		catch (PHPUnit_Framework_ExpectationFailedException $ex) {
+		catch (Exception $ex) {
         echo "\n.'Ошибка. Нет тега h1 на страницах: $SEOPage.\n";
 		
 	//	throw $ex;
@@ -177,7 +177,7 @@ catch (Exception $ex) {
 	}
 	
 	try {
-	$SEO = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='footer_desc']/h5"));
+	$SEO = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='footer_desc slide_text seoTextOpenButton stTruncate stTruncate-close']/h5"));
         $SEO->click();
 	
 	
@@ -230,7 +230,7 @@ catch (Exception $ex) {
         echo "\n.'Ошибка. Нет тега h1 на страницах: $SEOPage.\n";
 	} 
 	try {
-	$this->assertContains('<h2 class="h3"', $source,'Все не ок');
+	$this->assertContains('<h2>', $source,'Все не ок');
 	echo "\n.Тег h2 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
@@ -239,7 +239,7 @@ catch (Exception $ex) {
 		//var_dump($ex->getMessage());
 	}
 	try {
-	$this->assertContains('<h3 class="h4">', $source,'Все не ок');
+	$this->assertContains('<h3>', $source,'Все не ок');
 	echo "\n.Тег h3 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
@@ -260,12 +260,12 @@ catch (Exception $ex) {
 	}
 	
 	try {
-	$SEO = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='footer_desc']/h5"));
+	$SEO = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='footer_desc slide_text seoTextOpenButton stTruncate stTruncate-close']/h5"));
         $SEO->click();
 	
 	echo "\n.Тег h5 есть.\n";
 	}
-		catch (PHPUnit_Framework_ExpectationFailedException $ex) {
+		catch (Exception $ex) {
 		echo "\n Ошибка. Нет тега h5 на страницах: $SEOPage.\n";
 	//	throw $ex;
 	}
@@ -289,7 +289,7 @@ catch (Exception $ex) {
 	$SEO = $this->webDriver->findElement(WebDriverBy::xpath("//a[@title='Комплектующие']"));
 	$SEO->click();
 	$b = array(
-	           "//a[@title='для мебели']",
+	                   "//a[@title='для мебели']",
 			   "//a[@title='для душевых кабин']",
 			   "//a[@title='для ванн']",
 			   "//a[@title='для унитазов']",
@@ -302,7 +302,7 @@ catch (Exception $ex) {
 	);
 	foreach ($b as $v) {     
 	$SEOPage = $this->webDriver->findElement(WebDriverBy::xpath($v))->getText(); 
-	echo "\n Открываем страницу $SEOPage.\n";
+	echo "\n Открываем страницу Комплектующие $SEOPage.\n";
 	$SEO = $this->webDriver->findElement(WebDriverBy::xpath($v));
     $SEO->click();
 	$CurrURL = $this->webDriver->getCurrentURL();
@@ -310,14 +310,12 @@ catch (Exception $ex) {
 	$source = $this->webDriver->getPageSource();
 	try {
 	try {
-	$this->assertContains('<h1>', $source,'Все не ок');
+	$SEO = $this->webDriver->findElement(WebDriverBy::xpath("//*[@id='logo']/div/h1"));
+        $SEO->click();
 	echo "\n.Тег h1 есть.\n";
 	}
-		catch (PHPUnit_Framework_ExpectationFailedException $ex) {
+		catch (Exception $ex) {
         echo "\n.'Ошибка. Нет тега h1 на страницах: $SEOPage.\n";
-		
-	//	throw $ex;
-	//	var_dump($ex->getMessage());
 	} 
 	try {
 	$this->assertContains('<h2 class="h3"', $source,'Все не ок');
@@ -325,8 +323,7 @@ catch (Exception $ex) {
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
 		echo "\n Ошибка. Нет тега h2 на страницах: $SEOPage.\n";	
-	//	throw $ex;
-		//var_dump($ex->getMessage());
+
 	}
 	try {
 	$this->assertContains('<h3 class="h4">', $source,'Все не ок');
@@ -334,8 +331,6 @@ catch (Exception $ex) {
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
 		echo "\n Ошибка. Нет тега h3 на страницах: $SEOPage.\n";	
-	//	throw $ex;
-		//var_dump($ex->getMessage());
 	}
 	try {
 	$this->assertContains('<h4>', $source,'Все не ок');
@@ -343,19 +338,15 @@ catch (Exception $ex) {
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
 		echo "\n Ошибка. Нет тега h4 на страницах: $SEOPage.\n";
-		//echo $ex;
-		//var_dump($ex->getMessage());
-		//return $ex;
-	//	throw $ex;	
 	}
 	
 	try {
-	$SEO = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='footer_desc']/h5"));
+	$SEO = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='footer_desc slide_text seoTextOpenButton stTruncate stTruncate-close']/h5"));
         $SEO->click();
 	
 	echo "\n.Тег h5 есть.\n";
 	}
-		catch (PHPUnit_Framework_ExpectationFailedException $ex) {
+		catch (Exception $ex) {
 		echo "\n Ошибка. Нет тега h5 на страницах: $SEOPage.\n";
 	//	throw $ex;
 	}
