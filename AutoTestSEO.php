@@ -56,7 +56,7 @@ foreach ($a as $v) {
         $SEO->click();
 	echo "\n.Тег h1 есть.\n";
 	}
-		catch (PHPUnit_Framework_ExpectationFailedException $ex) {
+		catch (Exception $ex) {
         echo "\n.'Ошибка. Нет тега h1 на страницах: $SEOPage.\n";
 		
 	//	throw $ex;
