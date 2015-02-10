@@ -38,7 +38,7 @@ $a = array(
 		   "//a[@title='Радиаторы отопления']",
 		   "//a[@title='Обогреватели']",
 		   "//a[@title='Теплые полы']", 
-		   "//a[@title='Трапы и душевые лотки']",
+		   "//a[@title='Трапы и душевые лотки']", 
 		   "//a[@href='/discount/ucenka/']"
 		   );
 
@@ -56,11 +56,10 @@ foreach ($a as $v) {
         $SEO->click();
 	echo "\n.Тег h1 есть.\n";
 	}
-		catch (Exception $ex) {
+		catch (NoSuchElementException $nse) {
         echo "\n.'Ошибка. Нет тега h1 на страницах: $SEOPage.\n";
 		
-	//	throw $ex;
-	//	var_dump($ex->getMessage());
+
 	} 
 	try {
 	$this->assertContains('<h2 class="h3"', $source,'Все не ок');
@@ -68,8 +67,7 @@ foreach ($a as $v) {
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
 		echo "\n Ошибка. Нет тега h2 на страницах: $SEOPage.\n";	
-	//	throw $ex;
-		//var_dump($ex->getMessage());
+
 	}
 	try {
 	$this->assertContains('<h3 class="h4">', $source,'Все не ок');
@@ -77,8 +75,7 @@ foreach ($a as $v) {
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
 		echo "\n Ошибка. Нет тега h3 на страницах: $SEOPage.\n";	
-	//	throw $ex;
-		//var_dump($ex->getMessage());
+
 	}
 	try {
 	$this->assertContains('<h4>', $source,'Все не ок');
@@ -86,10 +83,7 @@ foreach ($a as $v) {
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
 		echo "\n Ошибка. Нет тега h4 на страницах: $SEOPage.\n";
-		//echo $ex;
-		//var_dump($ex->getMessage());
-		//return $ex;
-	//	throw $ex;	
+
 	}
 	
 	try {
@@ -100,7 +94,7 @@ foreach ($a as $v) {
 	}
 		catch (Exception $ex) {
 		echo "\n Ошибка. Нет тега h5 на страницах: $SEOPage.\n";
-	//	throw $ex;
+
 	}
 	try {
 	$this->assertNotContains('<h6>', $source,'Все не ок');
@@ -108,7 +102,7 @@ foreach ($a as $v) {
 	}
 	catch (PHPUnit_Framework_Exception $ex) {
 		echo "\n Ошибка. Есть тег h6 на страницах: $SEOPage.\n";		
-	//	throw $ex;
+
 	}
 }
 catch (Exception $ex) {
@@ -140,29 +134,23 @@ catch (Exception $ex) {
         $SEO->click();
 	echo "\n.Тег h1 есть.\n";
 	}
-		catch (Exception $ex) {
+		catch (NoSuchElementException $nse) {
         echo "\n.'Ошибка. Нет тега h1 на страницах: $SEOPage.\n";
-		
-	//	throw $ex;
-	//	var_dump($ex->getMessage());
 	} 
 	try {
-	$this->assertContains('<h2 class="h3"', $source,'Все не ок');
+	$this->assertContains('<h2>', $source,'Все не ок');
 	echo "\n.Тег h2 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
 		echo "\n Ошибка. Нет тега h2 на страницах: $SEOPage.\n";	
-	//	throw $ex;
-		//var_dump($ex->getMessage());
+
 	}
 	try {
-	$this->assertContains('<h3 class="h4">', $source,'Все не ок');
+	$this->assertContains('<h3>', $source,'Все не ок');
 	echo "\n.Тег h3 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
 		echo "\n Ошибка. Нет тега h3 на страницах: $SEOPage.\n";	
-	//	throw $ex;
-		//var_dump($ex->getMessage());
 	}
 	try {
 	$this->assertContains('<h4>', $source,'Все не ок');
@@ -170,10 +158,7 @@ catch (Exception $ex) {
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
 		echo "\n Ошибка. Нет тега h4 на страницах: $SEOPage.\n";
-		//echo $ex;
-		//var_dump($ex->getMessage());
-		//return $ex;
-	//	throw $ex;	
+
 	}
 	
 	try {
@@ -185,7 +170,7 @@ catch (Exception $ex) {
 	}
 		catch (PHPUnit_Framework_ExpectationFailedException $ex) {
 		echo "\n Ошибка. Нет тега h5 на страницах: $SEOPage.\n";
-	//	throw $ex;
+
 	}
 	try {
 	$this->assertNotContains('<h6>', $source,'Все не ок');
@@ -193,12 +178,12 @@ catch (Exception $ex) {
 	}
 	catch (PHPUnit_Framework_Exception $ex) {
 		echo "\n Ошибка. Есть тег h6 на страницах: $SEOPage.\n";		
-	//	throw $ex;
+
 	}
-}
+ }
 catch (Exception $ex) {
 	
-}
+} 
 }
 }
 
@@ -226,7 +211,7 @@ catch (Exception $ex) {
         $SEO->click();
 	echo "\n.Тег h1 есть.\n";
 	}
-		catch (Exception $ex) {
+		catch (NoSuchElementException $nse) {
         echo "\n.'Ошибка. Нет тега h1 на страницах: $SEOPage.\n";
 	} 
 	try {
@@ -235,8 +220,7 @@ catch (Exception $ex) {
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
 		echo "\n Ошибка. Нет тега h2 на страницах: $SEOPage.\n";	
-	//	throw $ex;
-		//var_dump($ex->getMessage());
+
 	}
 	try {
 	$this->assertContains('<h3>', $source,'Все не ок');
@@ -244,19 +228,14 @@ catch (Exception $ex) {
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
 		echo "\n Ошибка. Нет тега h3 на страницах: $SEOPage.\n";	
-	//	throw $ex;
-		//var_dump($ex->getMessage());
+
 	}
 	try {
 	$this->assertContains('<h4>', $source,'Все не ок');
 	echo "\n.Тег h4 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
-		echo "\n Ошибка. Нет тега h4 на страницах: $SEOPage.\n";
-		//echo $ex;
-		//var_dump($ex->getMessage());
-		//return $ex;
-	//	throw $ex;	
+		echo "\n Ошибка. Нет тега h4 на страницах: $SEOPage.\n";	
 	}
 	
 	try {
@@ -267,7 +246,7 @@ catch (Exception $ex) {
 	}
 		catch (Exception $ex) {
 		echo "\n Ошибка. Нет тега h5 на страницах: $SEOPage.\n";
-	//	throw $ex;
+
 	}
 	try {
 	$this->assertNotContains('<h6>', $source,'Все не ок');
@@ -275,12 +254,10 @@ catch (Exception $ex) {
 	}
 	catch (PHPUnit_Framework_Exception $ex) {
 		echo "\n Ошибка. Есть тег h6 на страницах: $SEOPage.\n";		
-	//	throw $ex;
-	}
 
+	}
 }
 catch (Exception $ex) {
-	
 }
 }
 	 }
@@ -289,7 +266,7 @@ catch (Exception $ex) {
 	$SEO = $this->webDriver->findElement(WebDriverBy::xpath("//a[@title='Комплектующие']"));
 	$SEO->click();
 	$b = array(
-	                   "//a[@title='для мебели']",
+	           "//a[@title='для мебели']",
 			   "//a[@title='для душевых кабин']",
 			   "//a[@title='для ванн']",
 			   "//a[@title='для унитазов']",
@@ -302,7 +279,7 @@ catch (Exception $ex) {
 	);
 	foreach ($b as $v) {     
 	$SEOPage = $this->webDriver->findElement(WebDriverBy::xpath($v))->getText(); 
-	echo "\n Открываем страницу Комплектующие $SEOPage.\n";
+	echo "\n Открываем страницу $SEOPage.\n";
 	$SEO = $this->webDriver->findElement(WebDriverBy::xpath($v));
     $SEO->click();
 	$CurrURL = $this->webDriver->getCurrentURL();
@@ -314,7 +291,7 @@ catch (Exception $ex) {
         $SEO->click();
 	echo "\n.Тег h1 есть.\n";
 	}
-		catch (Exception $ex) {
+		catch (NoSuchElementException $nse) {
         echo "\n.'Ошибка. Нет тега h1 на страницах: $SEOPage.\n";
 	} 
 	try {
@@ -331,6 +308,7 @@ catch (Exception $ex) {
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
 		echo "\n Ошибка. Нет тега h3 на страницах: $SEOPage.\n";	
+
 	}
 	try {
 	$this->assertContains('<h4>', $source,'Все не ок');
@@ -338,6 +316,7 @@ catch (Exception $ex) {
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
 		echo "\n Ошибка. Нет тега h4 на страницах: $SEOPage.\n";
+	
 	}
 	
 	try {
@@ -346,9 +325,9 @@ catch (Exception $ex) {
 	
 	echo "\n.Тег h5 есть.\n";
 	}
-		catch (Exception $ex) {
+		catch (NoSuchElementException $nse) {
 		echo "\n Ошибка. Нет тега h5 на страницах: $SEOPage.\n";
-	//	throw $ex;
+
 	}
 	try {
 	$this->assertNotContains('<h6>', $source,'Все не ок');
@@ -356,19 +335,13 @@ catch (Exception $ex) {
 	}
 	catch (PHPUnit_Framework_Exception $ex) {
 		echo "\n Ошибка. Есть тег h6 на страницах: $SEOPage.\n";		
-	//	throw $ex;
+
 	}
 }
 catch (Exception $ex) {
-	
 }
 }
-	
 	}
 	}
-	
-	
-	
-	
 
 ?>
