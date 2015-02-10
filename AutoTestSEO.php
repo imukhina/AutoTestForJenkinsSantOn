@@ -78,7 +78,7 @@ foreach ($a as $v) {
 
 	}
 	try {
-	$this->assertContains('h4', $source,'Все не ок');
+	$this->assertContains('<h4', $source,'Все не ок');
 	echo "\n.Тег h4 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
@@ -138,7 +138,7 @@ catch (Exception $ex) {
         echo "\n.'Ошибка. Нет тега h1 на страницах: $SEOPage.\n";
 	} 
 	try {
-	$this->assertContains('h2', $source,'Все не ок');
+	$this->assertContains('<h2', $source,'Все не ок');
 	echo "\n.Тег h2 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
@@ -146,14 +146,14 @@ catch (Exception $ex) {
 
 	}
 	try {
-	$this->assertContains('h3', $source,'Все не ок');
+	$this->assertContains('<h3', $source,'Все не ок');
 	echo "\n.Тег h3 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
 		echo "\n Ошибка. Нет тега h3 на страницах: $SEOPage.\n";	
 	}
 	try {
-	$this->assertContains('h4', $source,'Все не ок');
+	$this->assertContains('<h4', $source,'Все не ок');
 	echo "\n.Тег h4 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
@@ -173,7 +173,7 @@ catch (Exception $ex) {
 
 	}
 	try {
-	$this->assertNotContains('<h6>', $source,'Все не ок');
+	$this->assertNotContains('<h6', $source,'Все не ок');
 	echo "\n.Тег h6 отсутствует.\n";
 	}
 	catch (PHPUnit_Framework_Exception $ex) {
@@ -215,7 +215,7 @@ catch (Exception $ex) {
         echo "\n.'Ошибка. Нет тега h1 на страницах: $SEOPage.\n";
 	} 
 	try {
-	$this->assertContains('h2', $source,'Все не ок');
+	$this->assertContains('<h2', $source,'Все не ок');
 	echo "\n.Тег h2 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
@@ -223,7 +223,7 @@ catch (Exception $ex) {
 
 	}
 	try {
-	$this->assertContains('h3', $source,'Все не ок');
+	$this->assertContains('<h3', $source,'Все не ок');
 	echo "\n.Тег h3 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
@@ -231,7 +231,7 @@ catch (Exception $ex) {
 
 	}
 	try {
-	$this->assertContains('h4', $source,'Все не ок');
+	$this->assertContains('<h4', $source,'Все не ок');
 	echo "\n.Тег h4 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
@@ -249,7 +249,7 @@ catch (Exception $ex) {
 
 	}
 	try {
-	$this->assertNotContains('<h6>', $source,'Все не ок');
+	$this->assertNotContains('<h6', $source,'Все не ок');
 	echo "\n.Тег h6 отсутствует.\n";
 	}
 	catch (PHPUnit_Framework_Exception $ex) {
@@ -295,7 +295,7 @@ catch (Exception $ex) {
         echo "\n.'Ошибка. Нет тега h1 на страницах: $SEOPage.\n";
 	} 
 	try {
-	$this->assertContains('h2', $source,'Все не ок');
+	$this->assertContains('<h2', $source,'Все не ок');
 	echo "\n.Тег h2 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
@@ -303,7 +303,7 @@ catch (Exception $ex) {
 
 	}
 	try {
-	$this->assertContains('h3', $source,'Все не ок');
+	$this->assertContains('<h3', $source,'Все не ок');
 	echo "\n.Тег h3 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
@@ -311,7 +311,7 @@ catch (Exception $ex) {
 
 	}
 	try {
-	$this->assertContains('h4', $source,'Все не ок');
+	$this->assertContains('<h4', $source,'Все не ок');
 	echo "\n.Тег h4 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
@@ -330,7 +330,7 @@ catch (Exception $ex) {
 
 	}
 	try {
-	$this->assertNotContains('h6', $source,'Все не ок');
+	$this->assertNotContains('<h6', $source,'Все не ок');
 	echo "\n.Тег h6 отсутствует.\n";
 	}
 	catch (PHPUnit_Framework_Exception $ex) {
