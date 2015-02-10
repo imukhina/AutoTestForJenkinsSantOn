@@ -62,7 +62,7 @@ foreach ($a as $v) {
 
 	} 
 	try {
-	$this->assertContains('<h2 class="h3"', $source,'Все не ок');
+	$this->assertContains('<h2>', $source,'Все не ок');
 	echo "\n.Тег h2 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
@@ -70,7 +70,7 @@ foreach ($a as $v) {
 
 	}
 	try {
-	$this->assertContains('<h3 class="h4">', $source,'Все не ок');
+	$this->assertContains('<h3>', $source,'Все не ок');
 	echo "\n.Тег h3 есть.\n";
 	}
 	catch (PHPUnit_Framework_ExpectationFailedException $ex) {
@@ -168,7 +168,7 @@ catch (Exception $ex) {
 	
 	echo "\n.Тег h5 есть.\n";
 	}
-		catch (PHPUnit_Framework_ExpectationFailedException $ex) {
+		catch (NoSuchElementException $nse) {
 		echo "\n Ошибка. Нет тега h5 на страницах: $SEOPage.\n";
 
 	}
@@ -244,7 +244,7 @@ catch (Exception $ex) {
 	
 	echo "\n.Тег h5 есть.\n";
 	}
-		catch (Exception $ex) {
+		catch (NoSuchElementException $nse) {
 		echo "\n Ошибка. Нет тега h5 на страницах: $SEOPage.\n";
 
 	}
@@ -279,7 +279,7 @@ catch (Exception $ex) {
 	);
 	foreach ($b as $v) {     
 	$SEOPage = $this->webDriver->findElement(WebDriverBy::xpath($v))->getText(); 
-	echo "\n Открываем страницу $SEOPage.\n";
+	echo "\n Открываем страницу комплектующие $SEOPage.\n";
 	$SEO = $this->webDriver->findElement(WebDriverBy::xpath($v));
     $SEO->click();
 	$CurrURL = $this->webDriver->getCurrentURL();
