@@ -1,6 +1,8 @@
 <?php
 require_once 'AutoTestMain.php';
-class AutoTestMainPack extends AutoTestMain
+
+
+class AutoTestmainPack extends AutoTestMain
 {
 	public $urlMPageStand =  'http://admin:qwerty6@stand.santehnika-online.ru'; 
 	public $urlMPagePublic = 'http://santehnika-online.ru';
@@ -17,7 +19,8 @@ class AutoTestMainPack extends AutoTestMain
 		$this->category();
 		$this->seo();
 		$arrUrl = array(
-					"/personal/cart/", 
+					"/personal/cart/",
+					"/brands/belbagno/flay/", 
 					"/discount/ucenka/",
 					"/bathroom_furniture/279/16958/",
 					"/product/unitaz_kompakt_oskolskaya_keramika_superkompakt/",
@@ -27,7 +30,7 @@ class AutoTestMainPack extends AutoTestMain
 					"/shower_program/399/",
 					"/bidet/289/19417/",
 					"/urinals/466/15431/",
-					"/product/gofra_alcaplast_a97/",
+					"/product/gofra_alcaplast_a97/", */
 					"/product/dushevoy_trap_alcaplast_apv3444/"
 					);
 		$arrUrl = array_merge($arrUrl,$this->brandsURL);
@@ -36,25 +39,25 @@ class AutoTestMainPack extends AutoTestMain
 		foreach ($arrUrl as $arrUrlFE) {
 			$this->urlMPageStand = $this->urlMPageStand.$arrUrlFE;
 			$this->urlMPagePublic = $this->urlMPagePublic.$arrUrlFE;
-	//	require_once 'AutoTestMainLink.php';
 		echo "\n Открываю страницу $this->urlMPageStand \n";
         $this->mainMatch($this->urlMPageStand);
 		$this->c = array_merge($this->c,$this->a);
 		sleep(3);
-		echo "\n Открываю страницу $this->urlMPagePublic эталон \n";
+		echo "\n Открываю страницу $this->urlMPagePublic |Эталон \n";
         $this->mainMatch($this->urlMPagePublic);
 		$this->b = array_merge($this->b,$this->a);
 		$result = array_diff($this->c,$this->b); //2 параметр эталонный
+		$resultOut = array_diff($this->b,$this->c);
 		try{
 			try {
 				if (count($result)==0) {
-					echo "\n Страница $this->urlMPageStand Успешно прошла проверку \n";
+					echo "\n Страница $this->urlMPageStand |Успешно \n";
 				}
 				else {
 					echo "\n Ошибка на странице $this->urlMPageStand \n";
-					foreach ($result as $err) {
-						echo "\n На странице нет: \n";
-						print_r($err);
+					foreach ($resultOut as $errKey => $err) {
+						echo "\n На странице отличается: $errKey \n";
+						
 					}
 					throw new PHPUnit_Framework_Exception;
 				}
@@ -67,4 +70,5 @@ class AutoTestMainPack extends AutoTestMain
 		}
 	}
 }
+
 ?>
