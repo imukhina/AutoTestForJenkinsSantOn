@@ -71,47 +71,55 @@ class AutoTestMain extends PHPUnit_Framework_TestCase
 		try{
 			$tmainTitle = $this->webDriver->getTitle();
 			$k1 = 'Title';
-			array_push($this->a,$tmainTitle);
+			$this->a[$k1] = $tmainTitle;
 		}
 		catch(NoSuchElementException $ex) {}
 		try{
+			$key2 = 'keywords';
 			$tmainKeywords = $this->webDriver->findElement(WebDriverBy::xpath("//meta[@name='keywords']"))->getAttribute('content');
-			array_push($this->a,$tmainKeywords);
+			$this->a[$key2] = $tmainKeywords;
 		}
 		catch(NoSuchElementException $ex) {}
 		try{
+			$key3 = 'description';
 			$tmainDescription = $this->webDriver->findElement(WebDriverBy::xpath("//meta[@name='description']"))->getAttribute('content');
-			array_push($this->a,$tmainDescription);
+			$this->a[$key3] = $tmainDescription;
 		}
 		catch(NoSuchElementException $ex) {}
 		try{
+			$key4 = 'canonical';
 			$tmainCanonical = $this->webDriver->findElement(WebDriverBy::xpath("//link[@rel='canonical']"))->getAttribute('href');
-			array_push($this->a,$tmainCanonical);
+			$this->a[$key4] = $tmainCanonical;
 		}
 		catch(NoSuchElementException $ex) {}
 		try{
+			$key5 = 'h1';
 			$tmainH1 = $this->webDriver->findElement(WebDriverBy::xpath("//h1"))->getText();
-			array_push($this->a,$tmainH1);
+			$this->a[$key5] = $tmainH1;
 		}
 		catch(NoSuchElementException $ex) {}
-		try{	
+		try{
+			$key6 = 'h2';
 			$tmainH2 = $this->webDriver->findElement(WebDriverBy::xpath("//h2"))->getText();
-			array_push($this->a,$tmainH2);
+			$this->a[$key6] = $tmainH2;
 		}
 		catch(NoSuchElementException $ex) {}
 		try{
+			$key7 = 'h3';
 			$tmainH3 = $this->webDriver->findElement(WebDriverBy::xpath("//h3"))->getText();
-			array_push($this->a,$tmainH3);
+			$this->a[$key7] = $tmainH3;
 		}
 		catch(NoSuchElementException $ex) {}
 		try{
+			$key8 = 'h4';
 			$tmainH4 = $this->webDriver->findElement(WebDriverBy::xpath("//h4"))->getText();
-			array_push($this->a,$tmainH4);
+			$this->a[$key8] = $tmainH4;
 		}
 		catch(NoSuchElementException $ex) {}
 		try{
+			$key9 = 'h5';
 			$tmainH5 = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='marked']/div/h5"))->getText();
-			array_push($this->a,$tmainH5);
+			$this->a[$key9] = $tmainH5;
 		}
 		catch(NoSuchElementException $ex) {}
 		try{
