@@ -30,7 +30,7 @@ class AutoTestmainPack extends AutoTestMain
 					"/shower_program/399/",
 					"/bidet/289/19417/",
 					"/urinals/466/15431/",
-					"/product/gofra_alcaplast_a97/", */
+					"/product/gofra_alcaplast_a97/", 
 					"/product/dushevoy_trap_alcaplast_apv3444/"
 					);
 		$arrUrl = array_merge($arrUrl,$this->brandsURL);
