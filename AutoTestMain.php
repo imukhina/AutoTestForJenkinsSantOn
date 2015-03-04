@@ -30,7 +30,7 @@ class AutoTestMain extends PHPUnit_Framework_TestCase
 		$tmainBrands = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='paginator']/a[contains(@href,'/brands/') and not(contains(@class,'arrow last1'))][last()]"))->getText();
 		$tmainBrandscount = intval($tmainBrands); //цикл страниц
 		try {
-			for ($k=1;$k<=$tmainBrandscount;$k++) { 
+			for ($k=5;$k<=$tmainBrandscount;$k++) { 
 				$tmainBrands = $this->webDriver->findElements(WebDriverBy::xpath("//div[contains(@class,'brand-item')]"));
 				$countresult = count($tmainBrands); //цикл брендов
 				for ($i=1;$i<=$countresult;$i++) {
