@@ -15,7 +15,7 @@ class AutoTestmainPack extends AutoTestMain
 //	}
     public function testMainMatch() 
     {	
-		$this->findBrands();
+	//	$this->findBrands();
 		$this->category();
 		$this->seo();
 		$arrUrl = array(
@@ -33,7 +33,7 @@ class AutoTestmainPack extends AutoTestMain
 					"/product/gofra_alcaplast_a97/", 
 					"/product/dushevoy_trap_alcaplast_apv3444/"
 					);
-		$arrUrl = array_merge($arrUrl,$this->brandsURL);
+	//	$arrUrl = array_merge($arrUrl,$this->brandsURL);
 		$arrUrl = array_merge($arrUrl,$this->resultCat);
 		$arrUrl = array_merge($arrUrl,$this->seoTag);
 		foreach ($arrUrl as $arrUrlFE) {
