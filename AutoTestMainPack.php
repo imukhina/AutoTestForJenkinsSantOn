@@ -8,11 +8,9 @@ class AutoTestmainPack extends AutoTestMain
 	public $urlMPagePublic = 'http://santehnika-online.ru';
 	public $c = array();
 	public $b = array();
-// удалил блок ожидания экспшн
 
-//	public function mainMatch() {
-//		parent::mainMatch();
-//	}
+
+
     public function testMainMatch() 
     {	
 	//	$this->findBrands();
@@ -37,7 +35,7 @@ class AutoTestmainPack extends AutoTestMain
 		$arrUrl = array_merge($arrUrl,$this->resultCat);
 		$arrUrl = array_merge($arrUrl,$this->seoTag);
 		print_r($arrUrl);
-	/*	foreach ($arrUrl as $arrUrlFE) {
+		foreach ($arrUrl as $arrUrlFE) {
 			$this->urlMPageStand = $this->urlMPageStand.$arrUrlFE;
 			$this->urlMPagePublic = $this->urlMPagePublic.$arrUrlFE;
 		echo "\n Открываю страницу $this->urlMPageStand \n";
@@ -68,7 +66,7 @@ class AutoTestmainPack extends AutoTestMain
 		catch (Exception $ex) {}
 		$this->urlMPageStand = 'http://admin:qwerty6@stand.santehnika-online.ru'; 
 		$this->urlMPagePublic = 'http://santehnika-online.ru';
-		} */
+		} 
 	}
 }
 
