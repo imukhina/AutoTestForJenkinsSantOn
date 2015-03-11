@@ -36,15 +36,16 @@ class AutoTestmainPack extends AutoTestMain
 	//	$arrUrl = array_merge($arrUrl,$this->brandsURL);
 		$arrUrl = array_merge($arrUrl,$this->resultCat);
 		$arrUrl = array_merge($arrUrl,$this->seoTag);
-		foreach ($arrUrl as $arrUrlFE) {
+		print_r($arrUrl);
+	/*	foreach ($arrUrl as $arrUrlFE) {
 			$this->urlMPageStand = $this->urlMPageStand.$arrUrlFE;
 			$this->urlMPagePublic = $this->urlMPagePublic.$arrUrlFE;
 		echo "\n Открываю страницу $this->urlMPageStand \n";
-        $this->mainMatch($this->urlMPageStand);
+        	$this->mainMatch($this->urlMPageStand);
 		$this->c = array_merge($this->c,$this->a);
 		sleep(3);
 		echo "\n Открываю страницу $this->urlMPagePublic |Эталон \n";
-        $this->mainMatch($this->urlMPagePublic);
+        	$this->mainMatch($this->urlMPagePublic);
 		$this->b = array_merge($this->b,$this->a);
 		$result = array_diff($this->c,$this->b); //2 параметр эталонный
 		$resultOut = array_diff($this->b,$this->c);
@@ -67,7 +68,7 @@ class AutoTestmainPack extends AutoTestMain
 		catch (Exception $ex) {}
 		$this->urlMPageStand = 'http://admin:qwerty6@stand.santehnika-online.ru'; 
 		$this->urlMPagePublic = 'http://santehnika-online.ru';
-		}
+		} */
 	}
 }
 
