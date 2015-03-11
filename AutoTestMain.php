@@ -66,7 +66,7 @@ class AutoTestMain extends PHPUnit_Framework_TestCase
 	{	
 	//	require_once 'AutoTestMainLink.php';
 		$tmain=$this->webDriver->get($Link);
-		$this->webDriver->manage()->timeouts()->implicitlyWait(10);
+		$this->webDriver->manage()->timeouts()->implicitlyWait(20);
 		$tmain=$this->webDriver->manage()->window()->maximize();
 		$this->a = array();
 		try{
