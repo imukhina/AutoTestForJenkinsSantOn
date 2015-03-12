@@ -132,6 +132,7 @@ class AutoTestMain extends PHPUnit_Framework_TestCase
 	
 	public function category() {
 		$tmain=$this->webDriver->get($this->url);
+		$this->webDriver->manage()->timeouts()->implicitlyWait(60);
 		$tmain=$this->webDriver->manage()->window()->maximize();
 		$this->resultCat = array();
 		$this->CategoryURL = array();
