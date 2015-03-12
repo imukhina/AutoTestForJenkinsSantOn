@@ -238,12 +238,6 @@ class AutoTestFullPurchase extends PHPUnit_Framework_TestCase
 			$this->assertTrue($reg1==$check1, "Тест провален"); 
 			echo "\n Кликаем на нижнюю на странице кнопку 'В КОРЗИНУ' \n";
 			sleep(5);
-			try {
-			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//input[contains(@class,'yellownopic cartAdditionalsSubmit order_zone_kpk')]"));
-			$reg1->click();
-			}
-			catch(ElementNotVisibleException $ex) {}
-			
 			$reg2 = $this->webDriver->findElement(WebDriverBy::xpath("//div[@id='price_order']/noindex/a[@class='order']"));
 			$reg2->click();
 			sleep(5);
