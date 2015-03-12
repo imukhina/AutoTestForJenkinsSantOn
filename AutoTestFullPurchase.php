@@ -5,7 +5,7 @@ class AutoTestFullPurchase extends PHPUnit_Framework_TestCase
  * @expectedException Exception
  */
 {
-		protected $url = 'http://admin:qwerty6@stand.santehnika-online.ru/?ab=162';
+		protected $url = 'http://admin:qwerty6@stand.santehnika-online.ru/';
 		protected $webDriver;
 
 
@@ -24,23 +24,23 @@ class AutoTestFullPurchase extends PHPUnit_Framework_TestCase
 
 		$FullPurch=$this->webDriver->get($this->url);
 		$FullPurch=$this->webDriver->manage()->window()->maximize();
-	/*	echo "\n".'Заходим на сайт'."\n";
+		echo "\n".'Заходим на сайт'."\n";
 	try{
 			echo "\n".'Нажимаем на кнопку "Личный кабинет"'."\n";
 			$reg = $this->webDriver->findElement(WebDriverBy::xpath("//*[@id='user_top_menu']"));
 			$reg=$this->webDriver->getMouse()->mouseMove($reg->getCoordinates());
 			echo "\n".'Вводим номер телефона'."\n";
-			sleep(7);
+			$this->webDriver->manage()->timeouts()->implicitlyWait(20);
 			$reg = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='login']/div/input[@class='code show_on_success']"));
 			$reg->click()->sendKeys('977');
-			sleep(5);
+			$this->webDriver->manage()->timeouts()->implicitlyWait(20);
 			$reg = $this->webDriver->findElement(WebDriverBy::xpath("//input[@name='tel']"));
 			$reg->click()->sendKeys('7777770');
-			sleep(7);
+			$this->webDriver->manage()->timeouts()->implicitlyWait(20);
 			echo "\n".'Нажимаем на кнопку "Войти" '."\n";
 			$reg = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='auth_button']/input[@value='Войти']"));
 			$reg->click();
-			sleep(3);
+			$this->webDriver->manage()->timeouts()->implicitlyWait(5);;
 			$reg = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='input error-style']/input"));
 			try{
 			if ($reg->isDisplayed()){
@@ -59,7 +59,7 @@ class AutoTestFullPurchase extends PHPUnit_Framework_TestCase
 			echo "\n".'Нажимаем на кнопку "Войти" '."\n";
 			$reg = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='auth_button']/input[@value='Войти']"));
 			$reg->click();
-			sleep(3);
+			$this->webDriver->manage()->timeouts()->implicitlyWait(5);
 			$reg = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='input error-style']/input"));
 			try{
 			if ($reg->isDisplayed()){
@@ -77,7 +77,7 @@ class AutoTestFullPurchase extends PHPUnit_Framework_TestCase
 			$reg->click()->sendKeys('qwerty6'); 
 			$reg = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='auth_button']/input[@value='Войти']"));
 			$reg->click();
-			sleep(5);
+			$this->webDriver->manage()->timeouts()->implicitlyWait(5);
 			try {
 			$reg = $this->webDriver->findElement(WebDriverBy::xpath("//a[@href='/personal/order/']"));
 			if($reg->isDisplayed()){
@@ -121,18 +121,18 @@ class AutoTestFullPurchase extends PHPUnit_Framework_TestCase
 		echo "\n  ''\n";
 			} 
 		}
-	catch(Exception $ex) {}	*/
+	catch(Exception $ex) {}	
 	}
 	
-	public function FullPurch($a) {
+	public function FullPurchase($a) {
 		
-		
+		try{
 		foreach ($a as $v) {
 			$DiscSale = $this->webDriver->findElement(WebDriverBy::xpath($v));
         	$DiscSale->click();
 			$DiscSaleP = $this->webDriver->findElement(WebDriverBy::xpath($v))->getText();
 			echo "\n Открываем страницу $DiscSaleP \n";
-			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='product list newsec ']"));
+			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//div[contains(@class,'product list newsec')][1]"));
 			$reg1->click();
 			sleep(5);
 		
@@ -173,8 +173,7 @@ class AutoTestFullPurchase extends PHPUnit_Framework_TestCase
 			$this->assertTrue($reg1==$check1, "Тест провален");
 			echo 'Проверка названия - пришла к успеху \n';
 			sleep(5);
-			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//*[@id='content']/div[3]/div[1]/div[4]/div[1]/div[2]/div[1]/div"))->getAttribute('data-price');
-
+			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//div[contains(@class,'newprice')]"))->getAttribute('data-price');
 			$price = $reg1;
 			echo $price;
 			sleep(4);
@@ -191,10 +190,10 @@ class AutoTestFullPurchase extends PHPUnit_Framework_TestCase
 			echo $price;
 			try{
 			$this->assertTrue($price==$chPrice, "Тест провален"); //проверка между кнопками "В корзине"
-				echo "assert 0";
+				echo "\n проверка между кнопками 'В корзине' \n";
 			}
 			catch (PHPUnit_Framework_AssertionFailedError $ex) {
-				echo "Ошибка ";
+				echo "Ошибка  проверка между кнопками 'В корзине'";
 			}
 			$this->assertNotNull($reg1, "Тест провален"); 
 
@@ -204,28 +203,27 @@ class AutoTestFullPurchase extends PHPUnit_Framework_TestCase
 			$chPrice2 = preg_replace('/[^0-9,]/', '', $reg2);
 			
 			try{
-			$this->assertTrue($chPrice1==$chPrice2, "Тест провален");
-					 echo "\n 1 assert \n";
+			$this->assertTrue($chPrice1==$chPrice2, "Тест провален"); 
+					 echo "\n Проверка  верхней корзины с нижней корзиной \n";
 			}
 			catch (PHPUnit_Framework_ExpectationFailedException $ex) {
-                      echo "\n оОшибка \n";
+                      echo "\n Не соответствует сумма верхней корзины с суммой нижней корзиной \n";
                 }
 			try {
 			$this->assertTrue($chPrice==$chPrice2, "Тест провален");
 					 echo $chPrice;
-					 echo "\n 2 assert \n";
+					 echo "\n Не соответствует сумма верхней корзины и цены товара \n";
 			}
 			catch(PHPUnit_Framework_ExpectationFailedException $ex) {
-				 echo "\n оОшибка \n";
+				 echo "\n Не соответствует сумма корзины и товара \n";
 			}
 			try{
 			$this->assertTrue($chPrice==$chPrice1, "Тест провален");
-			 echo "\n 3 assert \n";	
+			 echo "\n Проверка цены товара и нижней корзины  \n";	
 			}
 			catch(PHPUnit_Framework_ExpectationFailedException $ex) {
-				echo "\n оОшибка \n";
+				echo "\n Не соответствует сумма нижней корзины и товара \n";
 			}
-			echo "Блок ассертов"; 
 			$this->webDriver->navigate()->refresh();
 			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//div[@id='price_order']"));
 			if($reg1->isDisplayed()) {
@@ -239,45 +237,39 @@ class AutoTestFullPurchase extends PHPUnit_Framework_TestCase
 			$this->assertTrue($reg1==$check1, "Тест провален"); 
 			echo "\n Кликаем на нижнюю на странице кнопку 'В КОРЗИНУ' \n";
 			sleep(5);
-			try{
-			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//span[@class='f1s14 additionalCartTotalPrice']"));
-			if($reg1->isDisplayed()) {
-				echo $reg1;
-				$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//input[@class='yellownopic cartAdditionalsSubmit']"));
-				$reg1->click();
-				sleep(3);
+			try {
+			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//input[contains(@class,'yellownopic cartAdditionalsSubmit order_zone_kpk')]"));
+			$reg1->click();
 			}
-			else {
-				$reg2 = $this->webDriver->findElement(WebDriverBy::xpath("//div[@id='price_order']/noindex/a[@class='order']"));
-				$reg2->click();
-				sleep(7);
-			}
+			catch(ElementNotVisibleException $ex) {}
 			
-			}
-			catch (PHPUnit_Framework_Exception $ex ) {
-				echo "Ошибка";
-			}
-			
+			$reg2 = $this->webDriver->findElement(WebDriverBy::xpath("//div[@id='price_order']/noindex/a[@class='order']"));
+			$reg2->click();
 			sleep(5);
 			echo "\n В поля Быстрое оформление вводим номер телефона 977 777 7771 \n";
 			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//*[@id='tovdob']/div/div[4]/form/input[2]"));
 			sleep(3);
 			$reg1->click()->sendKeys('977');
-			sleep(3);
+			$this->webDriver->manage()->timeouts()->implicitlyWait(20);
+			$randTel = '77777'.rand(10,99);
 			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//*[@id='tovdob']/div/div[4]/form/input[3]"));
 			$reg1->click()->sendKeys('7777771');
-			sleep(3);
+			$this->webDriver->manage()->timeouts()->implicitlyWait(20);
 			echo "\n нажамаем 'Оформить' \n";
 			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//*[@id='tovdob']/div/div[4]/form/input[4]"));
 			$reg1->click();
 			sleep(4);
 			$source = $this->webDriver->getPageSource();
-				
-			//блок try
+			sleep(5);	
+			try {
 			$this->assertContains('Детали Заказа',$source,'Все не ок');
 			$this->assertContains('К списку заказов',$source,'Все не ок');
 			$CurrURL = $this->webDriver->getCurrentURL();
 			$this->assertContains('/personal/order/',$CurrURL,'Все не ок');
+			} 
+			catch (PHPUnit_Framework_AssertionFailedError $ex) {
+				throw new Exception ("Ошибка на странице $CurrURL");
+			}
 			echo "\n Нажимаем кнопку 'Отменить' \n";
 			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//a[@class='r close']"));
 			$reg1->click();
@@ -328,7 +320,7 @@ class AutoTestFullPurchase extends PHPUnit_Framework_TestCase
 				
 			$DiscSaleP = $this->webDriver->findElement(WebDriverBy::xpath($v))->getText();
 			echo "\n Открываем страницу $DiscSaleP \n";
-			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//div[@class='product list newsec ']"));
+			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//div[contains(@class,'product list newsec')][1]"));
 			$reg1->click();
 			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//div[@id='price_order']/noindex/a[@class='order']"));
 			$reg1->click();
@@ -493,21 +485,30 @@ class AutoTestFullPurchase extends PHPUnit_Framework_TestCase
 			try{
                       $this->assertContains('Спасибо, Ваш заказ оформлен!
 Наш представитель свяжется с Вами в течение 30 минут.
-Обработка заказов происходит ежедневно с 9:00 до 20:00 по московскому времени.
+Обработка заказов происходит ежедневно с 08:00 до 01:00 по московскому времени.
 Уточнения при необходимости по телефону (495) 665-70-75 с указанием номера заказа.',$reg1,'Все не ок');
 
                    }
                 catch (PHPUnit_Framework_ExpectationFailedException $ex) {
-                      echo "\n Нет текста  \n";
+                      echo "\n Нет текста  Спасибо, Ваш заказ оформлен! \n";
                    }
 		// НАЧАЛО ПРОВЕРКА
 			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//a[@href='/personal/order/']"));
 			$reg1->click();
-			sleep(3); 
-		
-	
+			sleep(3);
+			try{
+			$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//span[@class='blockgreen' and contains(text(),'Новый')]"));
+			echo "Страница содержит 'Новый заказ' ";
 		}
-	}	
+		catch(NoSuchElementException $ex) {
+			echo "\n Страница не содержит 'Новый заказ'  \n";
+		}
+		$reg1 = $this->webDriver->findElement(WebDriverBy::xpath("//a[@href='/?logout=yes']"));
+		$reg1->click();
+	}
+	
+	}
+	catch(Exception $ex) {}
 }
-
+}
 ?>
