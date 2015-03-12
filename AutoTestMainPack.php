@@ -34,7 +34,6 @@ class AutoTestmainPack extends AutoTestMain
 	//	$arrUrl = array_merge($arrUrl,$this->brandsURL);
 		$arrUrl = array_merge($arrUrl,$this->resultCat);
 		$arrUrl = array_merge($arrUrl,$this->seoTag);
-		print_r($arrUrl);
 		foreach ($arrUrl as $arrUrlFE) {
 			$this->urlMPageStand = $this->urlMPageStand.$arrUrlFE;
 			$this->urlMPagePublic = $this->urlMPagePublic.$arrUrlFE;
