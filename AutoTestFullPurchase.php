@@ -23,6 +23,7 @@ class AutoTestFullPurchase extends PHPUnit_Framework_TestCase
 	{
 
 		$FullPurch=$this->webDriver->get($this->url);
+		$this->driver->manage()->timeouts()->implicitlyWait(60);
 		$FullPurch=$this->webDriver->manage()->window()->maximize();
 		echo "\n".'Заходим на сайт'."\n";
 	try{
