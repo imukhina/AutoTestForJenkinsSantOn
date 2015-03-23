@@ -1079,8 +1079,8 @@ print_r($kd);
             $source = $this->webDriver->getPageSource();
             $CurrURL = $this->webDriver->getCurrentURL();
             
-            $k=$b[$i];
-            $i++;
+         /*   $k=$b[$i];
+            $i++; */
 
            try {
                 try{
@@ -1106,13 +1106,13 @@ print_r($kd);
                       echo "\n.'Ошибка. Нет товаров на странице: $CurrURL\n";  
 
                    }
-                try{
+        /*        try{
                       $this->assertContains($k,$source,'Все не ок');   
                    }
                 catch (PHPUnit_Framework_ExpectationFailedException $ex) {
                       echo "\n.'Ошибка. Некорректное название $k на странице: $CurrURL\n";  
 
-                  }
+                  } */
                }
                catch (Exception $ex) {
 	
