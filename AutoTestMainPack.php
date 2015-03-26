@@ -4,7 +4,7 @@ require_once 'AutoTestMain.php';
 
 class AutoTestmainPack extends AutoTestMain
 {
-	public $urlMPageStand =  'http://admin:qwerty6@demo.santehnika-online.ru'; 
+	public $urlMPageStand =  'http://admin:qwerty6@dev.sant-on.ru'; 
 	public $urlMPagePublic = 'http://santehnika-online.ru';
 	public $c = array();
 	public $b = array();
