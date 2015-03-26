@@ -1,7 +1,7 @@
 <?php
 class AutoTestSEO extends PHPUnit_Framework_TestCase
 {
-		protected $url = 'http://admin:qwerty6@demo.santehnika-online.ru' ; 
+		protected $url = 'http://admin:qwerty6@dev.sant-on.ru/' ; 
 		protected $webDriver;
 /**
  * @expectedException Exception
