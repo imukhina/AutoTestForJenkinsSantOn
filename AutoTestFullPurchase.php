@@ -5,7 +5,7 @@ class AutoTestFullPurchase extends PHPUnit_Framework_TestCase
  * @expectedException Exception
  */
 {
-		protected $url = 'http://admin:qwerty6@stand.santehnika-online.ru/';
+		protected $url = 'http://admin:qwerty6@dev.sant-on.ru/';
 		protected $webDriver;
 
 
