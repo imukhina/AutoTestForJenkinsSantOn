@@ -6,7 +6,7 @@ class AutoTestReg extends PHPUnit_Framework_TestCase
  * @expectedException Exception
  */
 {
-		protected $url = 'http://santehnika-online.ru'; 
+		protected $url = 'http://dev.sant-on.ru'; 
 		protected $webDriver;
 
 		
