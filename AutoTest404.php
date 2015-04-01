@@ -8,7 +8,7 @@ class AutoTest404 extends PHPUnit_Framework_TestCase
  * @expectedException Exception
  */
 {
-		protected $url = 'https://admin:qwerty6@demo.santehnika-online.ru'; 
+		protected $url = 'https://admin:qwerty6@santehnika-online.ru'; 
 		protected $webDriver;
 
 		
